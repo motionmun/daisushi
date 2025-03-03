@@ -45,3 +45,10 @@ def create_tables():
 
     conn.commit()
     conn.close()
+
+
+def add_user(user_id, username):
+    with connect() as conn:
+        cursor = conn.cursor()
+        cursor.execute("INSERT INTO users (user_id, username) VALUES (?, ?) ON CONFLICT(user_id) DO NOTHING", (user_id, username))
+        conn.commit()
