@@ -1,10 +1,7 @@
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-admin_kb = ReplyKeyboardMarkup(
-    keyboard=[
-        [KeyboardButton(text="➕ Добавить блюдо"), KeyboardButton(text="✏️ Изменить блюдо")],
-        [KeyboardButton(text="🗑 Удалить блюдо"), KeyboardButton(text="📊 Статистика продаж")],
-        [KeyboardButton(text="🔙 Выйти из админки")]
-    ],
-    resize_keyboard=True
-)
+admin_kb = InlineKeyboardMarkup(inline_keyboard=[
+    [InlineKeyboardButton(text="📜 Управление меню", callback_data="manage_menu")],
+    [InlineKeyboardButton(text="📊 Статистика", callback_data="view_stats")],
+    [InlineKeyboardButton(text="📦 Просмотр заказов", callback_data="view_orders")]
+])
