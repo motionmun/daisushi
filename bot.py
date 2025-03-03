@@ -1,4 +1,6 @@
 import asyncio
+from models.order_model import setup_db
+setup_db()
 from aiogram import Bot, Dispatcher
 from config import TOKEN
 from database import create_tables
