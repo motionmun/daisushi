@@ -1,12 +1,3 @@
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
-TOKEN = os.getenv("BOT_TOKEN")
-ADMIN_ID = os.getenv("ADMIN_ID")
-
-
 import sqlite3
 
 def create_tables():
@@ -45,10 +36,3 @@ def create_tables():
 
     conn.commit()
     conn.close()
-
-
-def add_user(user_id, username):
-    with connect() as conn:
-        cursor = conn.cursor()
-        cursor.execute("INSERT INTO users (user_id, username) VALUES (?, ?) ON CONFLICT(user_id) DO NOTHING", (user_id, username))
-        conn.commit()

@@ -4,7 +4,7 @@ from config import TOKEN
 from database import create_tables
 from handlers import start, menu, cart, order, admin
 
-# Создаем таблицы в БД (если их нет)
+# Создаем таблицы в БД
 create_tables()
 
 # Создаем бота и диспетчер
@@ -21,5 +21,5 @@ dp.include_router(admin.router)
 async def main():
     await dp.start_polling(bot)
 
-if name == "__main__":
+if __name__ == "__main__":
     asyncio.run(main())
